@@ -1,0 +1,79 @@
+---
+import Hero from "../components/Hero.astro";
+import Shelf from "../components/Shelf.astro";
+import Faqs from "../components/Faqs.astro";
+import Iframe from "../components/Iframe.astro";
+import Section from "../components/Section.astro";
+import Navigation from "../components/Navigation.astro";
+import Boxed from "../layouts/Boxed.astro";
+import Layout from "../layouts/Layout.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Services from "../components/Services.astro";
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<Boxed parallax={true}>
+			<div class="main" style="background: #E99F56">
+				<Navigation />
+				<Hero />
+				<Section id="services" boxed={true} backgroundImage="1">
+					<h2
+						class="YourPersonalSpanishTeacher"
+						style="left: 438px; top: 21px; color: #323232; font-size: 24px; font-family: Concert One; font-weight: 400; word-wrap: break-word"
+					>
+						Your Personal Spanish Teacher
+					</h2>
+					<Services/>
+				</Section>
+			</div>
+		</Boxed>
+		<Boxed parallax={false}>
+			<div class="main">
+				<Section id="calendar" boxed={false} highlight={true} backgroundImage="2">
+					<h2
+						class="BookNow"
+						style="left: 547px; top: 30px; color: #323232; font-size: 24px; font-family: Concert One; font-weight: 400; word-wrap: break-word"
+					>
+						Book Now
+					</h2>
+					<Iframe url="https://liseth6rzv.setmore.com/lisethmondragonguerrero" />
+				</Section>
+				<Section id="testimonials" boxed={false} background="#FCFAF6">
+					<h2
+						class="Testimonials"
+						style="color: #323232; font-size: 24px; font-family: Concert One; font-weight: 400; word-wrap: break-word"
+					>
+						Testimonials
+					</h2>
+					<Testimonials />
+					<Shelf />
+				</Section>
+				<Section id="faq" boxed={true}>
+					<h2
+						class="FrequentlyAskedQuestions"
+						style="left: 453px; top: 19px; color: #323232; font-size: 24px; font-family: Concert One; font-weight: 400; word-wrap: break-word"
+					>
+						Frequently Asked Questions
+					</h2>
+					<Faqs />
+				</Section>
+			</div>
+		</Boxed>
+	</main>
+	<!-- <footer class="footer" style="min-height: 194px; background: #D6A551"> -->
+	<footer class="footer" style="min-height: 194px; background: #a15987;">
+	</footer>
+</Layout>
+
+<style>
+	.main {
+		width: 100%;
+		max-width: 1236px;
+	}
+	
+
+	@media screen and (min-width: 800px) {
+		
+	}
+</style>

@@ -1,0 +1,57 @@
+---
+interface Props {
+	id?: string;
+	url: string;
+}
+
+const { id, url } = Astro.props;
+---
+
+<div class="overlay">
+	<iframe
+		src={url}
+		width = "700"
+		height = "655"
+		frameborder="0"
+		scrolling="yes"></iframe>
+</div>
+
+<style>
+	.overlay {
+		overflow: hidden;
+		width: 100%;
+
+		display: block;
+    	grid-template-columns: 41% 59%;
+
+		/* background-color: #E53E98; */
+	}
+
+	.overlay::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: #f8f1e7;
+		mix-blend-mode: multiply;
+		/* 50% black overlay */
+		pointer-events: none;
+		/* This makes the overlay non-interactive */
+	}
+
+	iframe {
+		margin-top: -77px;
+		max-width: 700px;
+		max-height: 655px;
+		width: 100%;
+		grid-column: 2/3;
+	}
+
+	@media screen and (min-width: 800px) {
+		.overlay {
+			display: grid;
+		}
+	}
+</style>

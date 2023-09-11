@@ -1,0 +1,43 @@
+---
+interface Props {
+	id?: string;
+	backgroundImage?: string;
+	parallax?: boolean;
+}
+
+const { id, backgroundImage, parallax = false } = Astro.props;
+---
+
+<div id={id} class=`${parallax ? 'abovefold' : 'belowfold'}`>
+	<slot />
+</div>
+<style>
+	.abovefold,
+	.belowfold {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		padding-top: 2em;
+	}
+
+	.abovefold {
+		background: #fbc15b;
+		background-image: url("above_bg_edit_1.png");
+		background-repeat: no-repeat;
+		/* This prevents the image from repeating */
+		background-position: top center;
+		background-attachment: fixed;
+		/* background-blend-mode: color-burn; */
+	}
+
+	.belowfold {
+		background: #e99f56;
+		background-image: url("wide-bg.png");
+		background-repeat: no-repeat;
+		/* This prevents the image from repeating */
+		background-position: top center;
+		background-attachment: fixed;
+		background-size: 1438px;
+		/* background-blend-mode: color-burn; */
+	}
+</style>

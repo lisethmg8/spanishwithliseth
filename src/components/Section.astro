@@ -1,0 +1,67 @@
+---
+interface Props {
+	id: string;
+	background?: string;
+	backgroundImage?: "1" | "2";
+	boxed?: boolean;
+	highlight?: boolean;
+}
+
+const {
+	id,
+	background = "#F2E9DB",
+	boxed = false,
+	highlight = false,
+	backgroundImage = "0",
+} = Astro.props;
+---
+
+<div id={id} class=`section ${boxed ? 'gold' : ''}`>
+	<div
+		class={`bg-${backgroundImage} ${highlight ? "highlight" : ""}`}
+		style={highlight ? "" : `background-color: ${background};`}
+	>
+		<slot />
+	</div>
+</div>
+<style>
+	.section {
+		/* height: 625px; */
+		left: 0px;
+		top: 0px;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+
+	.section > div {
+		display: flex;
+		flex-direction: column;
+		min-height: 581px;
+		border-radius: 16px;
+		position: relative;
+	}
+
+	.highlight {
+		background: #f8f1e7;
+		/* This centers the background image */
+		overflow: hidden;
+	}
+
+	.gold {
+		background: #d6a551;
+	}
+
+	.bg-1 {
+		background-image: url("various_edit_1.png"), url("detail_edit_1.png");
+		background-repeat: no-repeat, no-repeat;
+		background-position:
+			bottom left,
+			top right;
+	}
+
+	.bg-2 {
+		background-image: url("side_edit_1.png");
+		background-repeat: no-repeat;
+		background-position: center left;
+	}
+</style>

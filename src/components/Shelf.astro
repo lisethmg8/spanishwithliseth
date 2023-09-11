@@ -1,0 +1,56 @@
+---
+interface Props {
+	id?: string;
+	background?: string;
+	boxed?: boolean;
+}
+
+const { id, background, boxed } = Astro.props;
+---
+
+<div
+	class="leavereview"
+	style="position: absolute; bottom: -16px; left: 1%; width: 98%; height: 158px; background: #F8F1E7; border-radius: 16px"
+>
+	<h3
+		class="LeaveAReview"
+		style="text-align: center; color: #323232; font-size: 24px; font-family: Concert One; font-weight: 400; word-wrap: break-word"
+	>
+		Leave a review
+	</h3>
+	<div class="icon-container">
+		<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+		<a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+		<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+	</div>
+</div>
+
+<style>
+	.icon-container {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	.social-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		background-color: #323232;
+		/* Background color of the circle */
+		color: #d6a551;
+		/* Icon color */
+		text-decoration: none;
+		/* Removes underline from the link */
+		transition: background-color 0.3s;
+		/* Smooth transition for hover effect */
+	}
+
+	.social-icon:hover {
+		background-color: #fefdfc;
+		/* Hover color of the circle */
+	}
+</style>

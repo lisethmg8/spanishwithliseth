@@ -1,0 +1,142 @@
+---
+interface Props {
+	id?: string;
+	background?: string;
+	boxed?: boolean;
+}
+
+const { id, background, boxed } = Astro.props;
+---
+
+<div id="hero">
+	<div class="copy">
+		<h2
+			class="AboutMyself"
+			style="margin-bottom: 0; text-align: left; color: #323232; font-size: 48px; font-family: Concert One; font-weight: 400; word-wrap: break-word"
+		>
+			About Myself
+		</h2>
+		<p>
+			Hola! I'm Liz, a passionate university technology teacher from the
+			vibrant heart of Nicaragua. With over a decade of experience in
+			education, I bring this holistic approach to my online lessons,
+			ensuring you not only master the language's grammar and vocabulary
+			but also immerse yourself in its heartbeat.
+		</p>
+
+		<p>
+			My teaching style is a blend of structured learning, interactive
+			exercises, and storytelling, all geared towards making your learning
+			experience enjoyable and memorable. With my guidance, you won't just
+			speak Spanish; you'll feel it.
+		</p>
+
+		<p>
+			If you're looking for a tutor who combines the precision of a tech
+			educator with the warmth of Nicaraguan hospitality, look no further.
+			Let's embark on this linguistic journey together. Book a lesson with
+			me, and let's dive into the world of Spanish.
+		</p>
+	</div>
+	<!-- <div class="side">
+		<a class="Rectangle11" href="#calendar">
+			<span class="BookALesson"> Book a lesson!</span>
+		</a>
+	</div> -->
+</div>
+<style>
+	#hero {
+		width: 100%;
+		background: #f6ebd9;
+		background-image: url("hero_bg_edit_1.png");
+		background-repeat: no-repeat;
+		background-position: top center;
+		background-size: cover;
+	}
+
+	#hero > .copy {
+		padding-top: 2%;
+		width: 80%;
+		margin-left: 4%;
+		padding-bottom: 3em;
+		background: rgba(242, 233, 219, 0.7);
+		border-radius: 16px;
+	}
+
+	.side a {
+		text-decoration: none;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		width: 223px;
+		height: 83px;
+		left: 0px;
+		top: 0px;
+		background: #e53e98;
+		border-radius: 100px;
+		border: 0.5px black solid;
+	}
+
+	.side span {
+		left: 37px;
+		top: 27px;
+		color: white;
+		font-size: 24px;
+		font-family: Concert One;
+		font-weight: 400;
+		word-wrap: break-word;
+	}
+
+	#hero p {
+		min-height: auto;
+		font-family: Archivo Narrow;
+		margin: 8px 0 6px 0;
+		background: rgba(242, 233, 219, 0.7);
+		border-radius: 16px;
+		color: #323232;
+	}
+
+	@media screen and (min-width: 600px) {
+		#hero {
+			background-position: top right;
+		}
+
+		#hero > .copy {
+			padding-top: 2%;
+			width: 50%;
+			margin-left: 4%;
+			padding-bottom: 3em;
+		}
+	}
+
+	@media screen and (min-width: 800px) {
+		#hero > .copy {
+			padding-top: 2%;
+			width: 33%;
+			margin-left: 4%;
+			padding-bottom: 3em;
+		}
+	}
+
+	@media screen and (min-width: 1000px) {
+		#hero > .copy {
+			padding-top: 2%;
+			width: 33%;
+			margin-left: 16%;
+			padding-bottom: 3em;
+		}
+	}
+
+	@media screen and (min-width: 1200px) {
+		#hero {
+			aspect-ratio: 16/9;
+			background-position: top center;
+		}
+		#hero > .copy {
+			padding-top: 9%;
+			width: 25%;
+			margin-left: 22%;
+		}
+	}
+</style>

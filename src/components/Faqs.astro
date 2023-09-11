@@ -1,0 +1,191 @@
+---
+interface Props {
+	id?: string;
+	background?: string;
+	boxed?: boolean;
+}
+
+const { id, background, boxed } = Astro.props;
+---
+
+<div class="faq-section">
+	<div class="faq faq-open">
+		<h3 class="faq-question">
+			What platform do you use for online lessons?
+			<span class="indicator">▼</span>
+		</h3>
+		<div class="faq-answer">
+			<p>
+				I utilize platforms like Zoom, Skype, and Microsoft Teams for
+				online lessons, depending on the preference and comfort of the
+				student. All of these platforms provide a seamless and
+				interactive learning experience.
+			</p>
+		</div>
+	</div>
+
+	<div class="faq">
+		<h3 class="faq-question">
+			How long is each Spanish lesson?
+			<span class="indicator">▼</span>
+		</h3>
+		<div class="faq-answer">
+			<p>
+				Each Spanish lesson typically lasts 60 minutes. However, shorter
+				or longer sessions can be arranged based on the student's needs
+				and preferences.
+			</p>
+		</div>
+	</div>
+
+	<div class="faq">
+		<h3 class="faq-question">
+			Do you offer lessons for all levels?
+			<span class="indicator">▼</span>
+		</h3>
+		<div class="faq-answer">
+			<p>
+				Yes, I cater to all levels, from beginners to advanced students.
+				Each lesson is tailored to the individual's current level and
+				learning objectives.
+			</p>
+		</div>
+	</div>
+
+	<div class="faq">
+		<h3 class="faq-question">
+			What materials do you use during the lessons?
+			<span class="indicator">▼</span>
+		</h3>
+		<div class="faq-answer">
+			<p>
+				I use a combination of textbooks, online resources, videos, and
+				interactive exercises. Additionally, I provide supplementary
+				materials and worksheets to reinforce learning outside of our
+				lessons.
+			</p>
+		</div>
+	</div>
+
+	<div class="faq">
+		<h3 class="faq-question">
+			Can I reschedule a lesson if I can't attend?
+			<span class="indicator">▼</span>
+		</h3>
+		<div class="faq-answer">
+			<p>
+				Yes, lessons can be rescheduled with at least 24 hours notice.
+				It's essential to communicate any changes in advance to ensure
+				both the student and teacher can adjust their schedules
+				accordingly.
+			</p>
+		</div>
+	</div>
+
+	<div class="faq">
+		<h3 class="faq-question">
+			How do payments work for the lessons?
+			<span class="indicator">▼</span>
+		</h3>
+		<div class="faq-answer">
+			<p>
+				Payments are typically made in advance through secure online
+				platforms such as PayPal or bank transfer. Package deals are
+				available for those looking to book multiple lessons at once.
+			</p>
+		</div>
+	</div>
+
+	<!-- ... rest of your faqs ... -->
+</div>
+<style>
+	.faq-section {
+		width: 80%;
+		margin: 50px auto;
+		border-radius: 5px;
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+	}
+
+	.faq {
+		border-bottom: 1px solid #eaeaea;
+		padding: 10px 0;
+	}
+
+	.faq:last-child {
+		border-bottom: none;
+	}
+
+	.faq-question {
+		cursor: pointer;
+		margin: 0;
+		padding: 10px 0;
+		font-family: Besley;
+		color: #323232;
+	}
+
+	.faq-answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease-in-out;
+		font-family: Archivo Narrow;
+		color: #323232;
+		background-color: #fefdfc;
+		border-bottom: 1px #d6a551 solid;
+		border-radius: 16px;
+	}
+
+	.faq-answer > p {
+		padding: 0 2em;
+	}
+
+	.faq-open .faq-answer {
+		max-height: 140px;
+		/* adjust this value based on the content height */
+	}
+
+	.indicator {
+		float: right;
+		transition: transform 0.4s ease-in-out;
+	}
+
+	.faq-open .indicator {
+		transform: rotate(0deg);
+	}
+
+	.faq:not(.faq-open) .indicator {
+		transform: rotate(-90deg);
+	}
+	p {
+		position: relative;
+		min-height: 529px;
+	}
+</style>
+
+<script>
+	let faqs = document.querySelectorAll(".faq");
+
+	faqs.forEach((faq) => {
+		faq.querySelector(".faq-question").addEventListener(
+			"click",
+			function () {
+				// Close all FAQs
+				faqs.forEach((innerFaq) => {
+					if (
+						innerFaq !== faq &&
+						innerFaq.classList.contains("faq-open")
+					) {
+						innerFaq.classList.remove("faq-open");
+					}
+				});
+
+				// Toggle the clicked FAQ
+				if (faq.classList.contains("faq-open")) {
+					faq.classList.remove("faq-open");
+				} else {
+					faq.classList.add("faq-open");
+				}
+			},
+		);
+	});
+</script>
